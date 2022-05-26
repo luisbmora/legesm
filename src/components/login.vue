@@ -1,0 +1,92 @@
+<template>
+  <v-row justify="center">
+    <v-col
+      cols="12"
+      sm="10"
+      md="8"
+      lg="6"
+    >
+      <v-card ref="form">
+        <v-card-text>
+            <center>
+              <h1>Bienvenido</h1>
+              <br>
+          </center>
+          <v-text-field
+            solo
+            ref="nombre"
+            v-model="nombre"
+            :rules="[() => !!nombre || 'Campo necesario']"
+            :error-messages="errorMessages"
+            label="Usuario"
+            required
+          ></v-text-field>
+          <v-text-field
+            solo
+            ref="contraseña"
+            v-model="contraseña"
+            :rules="[() => !!contraseña || 'Campo necesario']"
+            label="Contraseña"
+            required
+          ></v-text-field>
+        <h4>Recuperar Contraseña</h4>  
+        </v-card-text>
+        <v-divider class="mt-12"></v-divider>
+        <v-card-actions>
+          <v-btn
+            class="mr-4"
+            color="primary"
+            text
+            @click="submit"
+          >
+            INGRESAR
+          </v-btn>
+          <h4 aling="left">Registrarme</h4>
+        </v-card-actions>
+        <v-divider class="mt-12"></v-divider>
+      </v-card>
+    </v-col>
+  </v-row>
+
+</template>
+
+<script>
+  export default {
+    data: () => ({
+      errorMessages: '',
+      nombre: null,
+      email: null,
+      contraseña: null,
+      verificarC: null,
+    }),
+
+    computed: {
+      form () {
+        return {
+          nombre: this.nombre,
+          email: this.email,
+          contraseña: this.contraseña,
+          verificarC: this.verificarC,
+        }
+      },
+    },
+
+    watch: {
+      name () {
+        this.errorMessages = ''
+      },
+    },
+
+    methods: {
+      submit () {
+        this.formHasErrors = false
+
+        Object.keys(this.form).forEach(f => {
+          if (!this.form[f]) this.formHasErrors = true
+
+          this.$refs[f].validate(true)
+        })
+      },
+    },
+  }
+</script>
