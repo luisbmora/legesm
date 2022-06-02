@@ -43,6 +43,16 @@ const routes = [{
         name: 'ErrorMenssage',
         component: ErrorMenssage
     },
+    {
+        path: '/MenuTraductor',
+        name: 'menu-traductor',
+        component: () => import('../views/Menutraductor.vue')
+    },
+    {
+        path: '/Secciones',
+        name: 'secciones',
+        component: () => import('../views/Secciones.vue')
+    }
 ]
 
 
