@@ -6,47 +6,56 @@
       md="8"
       lg="6"
     >
-      <v-card ref="form">
+      <v-card ref="form" id="form" name="form" v-on:submit.prevent="procesar();">
         <v-card-text>
             <center>
               <h1>Registrarse</h1>
               <br>
           </center>
           <v-text-field
-            solo
             ref="nombre"
+            value=""
             v-model="nombre"
-            :rules="[() => !!nombre || 'Campo necesario']"
+            :rules="[rules.required]"
             :error-messages="errorMessages"
             label="Nombre Usuario"
-            required
+            persistent-hint
+            outlined
           ></v-text-field>
           <v-text-field
-            solo
+            persistent-hint
+            outlined
             ref="email"
             v-model="email"
+            value=""
             :rules="[
-              () => !!email || 'Campo necesario',
-              () => /.+@.+\..+/.test(email) || 'E-mail debe de ser valido',
+              () => /.+@.+\..+/.test(email) || 'E-mail debe de ser valido', 
+              rules.required,
             ]"
             label="E-mail"
             required
           ></v-text-field>
           <v-text-field
-            solo
-            ref="contraseña"
+            persistent-hint
+            outlined
             v-model="contraseña"
-            :rules="[() => !!contraseña || 'Campo necesario']"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[rules.required, rules.min]"
+            :type="show1 ? 'text' : 'password'"
+            name="contraseña"
+            value=""
             label="Contraseña"
-            required
+            @click:append="show1 = !show1"
           ></v-text-field>
           <v-text-field
-            solo
-            ref="verificarC"
+            persistent-hint
+            outlined
             v-model="verificarC"
-            :rules="[() => !!verificarC || 'Campo necesario']"
+            :rules="[rules.required]"
+            :type="show1 ? 'text' : 'password'"
+            name="verificarC"
             label="Confirmar Contraseña"
-            required
+            value=""
           ></v-text-field>
         </v-card-text>
         <v-divider class="mt-12"></v-divider>
@@ -67,16 +76,34 @@
 </template>
 
 <script>
+
+import axios from "axios"
+
   export default {
-    data: () => ({
-      errorMessages: '',
-      nombre: null,
-      email: null,
-      contraseña: null,
-      verificarC: null,
-    }),
+    data () {
+      return {
+        //Declarar arreglo de documento Json
+        usuario: [],
+        errorMessages: '',
+        //Iniacilizar variables de formulario
+        nombre: null,
+        email: null,
+        contraseña: null,
+        verificarC: null,
+        //Variables de visualizacion de contraseñas
+        show1: false,
+        show2: false,
+        //Validaciones de formulario
+        rules: {
+          required: value => !!value || 'Campo Necesario',
+          min: v => v.length >= 8 || 'Min 8 caracteres',
+          emailVerificar: ()=>  (`The email and password you entered don't match`),
+        },
+      }
+    },
 
     computed: {
+      // ESTO NO SE SI VA
       form () {
         return {
           nombre: this.nombre,
@@ -94,15 +121,20 @@
     },
 
     methods: {
-      submit () {
-        this.formHasErrors = false
-
-        Object.keys(this.form).forEach(f => {
-          if (!this.form[f]) this.formHasErrors = true
-
-          this.$refs[f].validate(true)
+      //ESTE METODO ME LO PASO TOÑITO PERO NO SALE
+      async submit(){
+        const res = await axios.post(`http://localhost:3000/usuarios`,{
+          nombre: this.nombre,
+          email: this.email,
+          contraseña: this.contraseña,
+          verificarC: this.verificarC,
         })
-      },
+        this.usuario = [...this.usuario,res.data];
+        this.nombre = "";
+        this.email= "";
+        this.contraseña= "";
+        this.verificarC= "";
+      }
     },
   }
 </script>
