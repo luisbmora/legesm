@@ -52,6 +52,11 @@ const routes = [{
         path: '/Secciones',
         name: 'secciones',
         component: () => import('../views/Secciones.vue')
+    },
+    {
+        path: '/ProgresoLeccion',
+        name: 'progreso-leccion',
+        component: () => import('../views/ProgresoLeccion.vue')
     }
 ]
 
