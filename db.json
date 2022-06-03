@@ -19,7 +19,7 @@
   "user": [
     {
       "id": 1,
-      "nombre": "Sebastian",
+      "nombre": "Sebastian ",
       "email": "testgmail.com",
       "password": "12345"
     }
