@@ -16,7 +16,12 @@
   "profile": {
     "name": "typicode"
   },
-  "usuarios": {
-    "registros": {"name":"typicode", "email":"email","password":"password","confirmar":"password"}
-  }
+  "user": [
+    {
+      "id": 1,
+      "nombre": "Sebastian",
+      "email": "testgmail.com",
+      "password": "12345"
+    }
+  ]
 }
