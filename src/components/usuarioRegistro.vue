@@ -34,7 +34,7 @@
               :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               :rules="rulesPass"
               :type="show1 ? 'text' : 'password'"
-              name="contraseña"
+              name="password"
               value=""
               label="Contraseña"
               @click:append="show1 = !show1"
@@ -53,7 +53,7 @@
         </v-card-text>
         <v-divider class="mt-12"></v-divider>
         <v-card-actions>
-          <v-btn class="mr-4" color="primary" text @click="save">
+          <v-btn class="mr-4" color="primary" text @click="save()">
             REGISTRARME
           </v-btn>
         </v-card-actions>
@@ -63,9 +63,10 @@
 </template>
 
 <script>
-// import axios from "axios"
+//import axios from "axios"
 import { mapActions, mapGetters, mapState } from "vuex";
 import Swal from "sweetalert2";
+import { AddUsuario } from "../modulos/usuarios/action";
 
 export default {
   data() {
@@ -100,6 +101,7 @@ export default {
       ],
       rulesPassC: [
         (value) => !!value || "Campo Necesario",
+        //(valu) => valu.password === valu.verificarC || "Contraseña no es igual", 
         (v) => v.length > 7 || "Min 8 caracteres",
       ],
     };
@@ -111,7 +113,7 @@ export default {
       return {
         nombre: this.nombre,
         email: this.email,
-        contraseña: this.contraseña,
+        password: this.password,
         verificarC: this.verificarC,
       };
     },
@@ -131,8 +133,11 @@ export default {
       // se valida si el formulario esta bien
       if (this.$refs.formAdd.validate()) {
         // se manda el modelo
+        if(this.editedItem.password === this.editedItem.verificarC)
+        {
         this.AddUsuario(this.editedItem).then((respuesta) => {
           if (!this.status) {
+            this.$router.push('/Login');
             Swal.fire({
               icon: "success",
               title: "Usuario registrado",
@@ -146,7 +151,14 @@ export default {
               text: this.errorMessage,
             });
           }
-        });
+        });}
+        else{
+          Swal.fire({
+              type: "error",
+              title: "Oops...",
+              text: "La contraseñas no coinciden",
+            });
+        }
       } else {
         this.validationError();
       }
@@ -155,28 +167,12 @@ export default {
     validationError() {
       Swal.fire({
         icon: "warning",
-        title: "Estas idiota o que!",
-        text: "hay campos sin llenar",
+        title: "Hay campos vacios",
+        text: "Revisa que todos los campos tenga la informacion correspondiente",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
       });
     },
-
-    //ESTE METODO ME LO PASO TOÑITO PERO NO SALE
-    // Si no sale pa que vrgs lo pones mamon
-    // async submit(){
-    //   const res = await axios.post(`http://localhost:3000/usuarios`,{
-    //     nombre: this.nombre,
-    //     email: this.email,
-    //     contraseña: this.contraseña,
-    //     verificarC: this.verificarC,
-    //   })
-    //   this.usuario = [...this.usuario,res.data];
-    //   this.nombre = "";
-    //   this.email= "";
-    //   this.contraseña= "";
-    //   this.verificarC= "";
-    // }
   },
 };
 </script>

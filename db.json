@@ -22,6 +22,157 @@
       "nombre": "Sebastian ",
       "email": "testgmail.com",
       "password": "12345"
+    },
+    {
+      "nombre": "wertyu",
+      "email": "qwer@we.qwe",
+      "password": "12345678",
+      "verificarC": "12345678",
+      "id": 2
+    },
+    {
+      "nombre": "wertyu23",
+      "email": "qwe32r@we.qww",
+      "password": "12345678",
+      "verificarC": "1234567123",
+      "id": 3
+    },
+    {
+      "nombre": "toñito",
+      "email": "tonitohunter@gmail.com",
+      "password": "12345678",
+      "verificarC": "12345678",
+      "id": 4
+    },
+    {
+      "nombre": "mora",
+      "email": "morabb@gmail.com",
+      "password": "12345678",
+      "verificarC": "12345678",
+      "id": 5
+    },
+    {
+      "nombre": "rafa",
+      "email": "rafitabb@gmail.com",
+      "password": "123456789",
+      "verificarC": "12345678",
+      "id": 6
+    },
+    {
+      "nombre": "fatima",
+      "email": "fatimabb@gmail.com",
+      "password": "123456789",
+      "verificarC": "12345678910",
+      "id": 7
+    },
+    {
+      "nombre": "brenda",
+      "email": "brendaviry@gmail.com",
+      "password": "12345678",
+      "verificarC": "12345678901234",
+      "id": 8
+    },
+    {
+      "nombre": "brenda",
+      "email": "brendaviry@gmail.com",
+      "password": "12345678",
+      "verificarC": "12345678",
+      "id": 9
+    },
+    {
+      "nombre": "werty",
+      "email": "werth@asdf.wer",
+      "password": "2345672345",
+      "verificarC": "1234567890'",
+      "id": 10
+    },
+    {
+      "nombre": "2345678",
+      "email": "123@233.hf",
+      "password": "1234567890'0987654",
+      "verificarC": "0987654321|2345",
+      "id": 11
+    },
+    {
+      "nombre": "2345678",
+      "email": "123@233.hf",
+      "password": "123456789",
+      "verificarC": "123456789",
+      "id": 12
+    },
+    {
+      "nombre": "2345678",
+      "email": "123@233.hf",
+      "password": "123456789",
+      "verificarC": "12345678912",
+      "id": 13
+    },
+    {
+      "nombre": "karen",
+      "email": "kardashan@gmail.com",
+      "password": "123454321",
+      "verificarC": "1234567890",
+      "id": 14
+    },
+    {
+      "nombre": "jorge",
+      "email": "jorgefriki@gmail.com",
+      "password": "12345678",
+      "verificarC": "123453223",
+      "id": 15
+    },
+    {
+      "nombre": "wert",
+      "email": "qwer@wer.qwe",
+      "password": "123456789",
+      "verificarC": "123456789",
+      "id": 16
+    },
+    {
+      "nombre": "swdefrgty",
+      "email": "wefrgtq@wdfg.ds",
+      "password": "wertyuiasdfg",
+      "verificarC": "sdfghjkouytd",
+      "id": 17
+    },
+    {
+      "23456789876543": "",
+      "id": 18
+    },
+    {
+      "nombre": "wertgyhj",
+      "email": "wertgh@wert.we",
+      "password": "23456789876543",
+      "verificarC": "234567890'098765432",
+      "id": 19
+    },
+    {
+      "nombre": "jhghjgjg",
+      "email": "gjjhgj.s.s@jh.jgkj",
+      "password": "gfhgjhklkl",
+      "verificarC": "rdgfhjvjhvjhkj",
+      "id": 20
+    },
+    {
+      "nombre": "wefrgthyuj",
+      "email": "edrfgthy.erfgt.ds@sf.dd",
+      "password": "werthjfg",
+      "verificarC": "jfruigferugfrejkb",
+      "id": 21
+    },
+    {
+      "nombre": "defrgthyj",
+      "email": "efgh@jkfh.iedhuek",
+      "password": "ejkhdjekhfdkjehkj",
+      "verificarC": "dkejhfukjehf812723",
+      "id": 22
+    },
+    {
+      "nombre": "dfrgthy",
+      "email": "wdefrgt@defr.df",
+      "password": "12345678",
+      "verificarC": "12345678",
+      "id": 23
     }
   ]
 }

@@ -14,18 +14,18 @@
           </center>
           <v-text-field
             solo
-            ref="nombre"
-            v-model="nombre"
-            :rules="[() => !!nombre || 'Campo necesario']"
+            name="nombre"
+            v-model="editedItem.nombre"
+            :rules="[() => !!editedItem.nombre || 'Campo necesario']"
             :error-messages="errorMessages"
             label="Usuario"
             required
           ></v-text-field>
           <v-text-field
             solo
-            ref="contraseña"
-            v-model="contraseña"
-            :rules="[() => !!contraseña || 'Campo necesario']"
+            name="password"
+            v-model="editedItem.password"
+            :rules="[() => !!editedItem.password || 'Campo necesario']"
             label="Contraseña"
             required
           ></v-text-field>
@@ -51,13 +51,19 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState } from "vuex";
+import Swal from "sweetalert2";
+
   export default {
     data: () => ({
       errorMessages: '',
-      nombre: null,
-      email: null,
-      contraseña: null,
-      verificarC: null,
+      editedItem: {
+        nombre: null,
+        email: null,
+        password: null,
+        verificarC: null,
+      }
+      
     }),
 
     computed: {
@@ -65,7 +71,7 @@
         return {
           nombre: this.nombre,
           email: this.email,
-          contraseña: this.contraseña,
+          password: this.password,
           verificarC: this.verificarC,
         }
       },

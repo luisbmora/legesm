@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import RegistroUsuario from '../views/RegistroUsuario.vue'
 import RecuperarContraseña from '../views/RecuperarContraseña.vue'
 import ErrorMenssage from '../views/ErrorMenssage.vue'
+import Perfil from '../views/Perfil.vue'
 
 Vue.use(VueRouter)
 
@@ -46,12 +47,19 @@ const routes = [{
     {
         path: '/MenuTraductor',
         name: 'menu-traductor',
-        component: () => import('../views/Menutraductor.vue')
+        component: () =>
+            import ('../views/Menutraductor.vue')
     },
     {
         path: '/Secciones',
         name: 'secciones',
-        component: () => import('../views/Secciones.vue')
+        component: () =>
+            import ('../views/Secciones.vue')
+    },
+    {
+        path: '/Perfil',
+        name: 'perfil',
+        component: Perfil
     }
 ]
 
