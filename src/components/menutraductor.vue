@@ -47,17 +47,24 @@
     color="teal"
     grow
   >
+
+  <a href="./secciones">
     <v-btn>
       <v-icon>mdi-home</v-icon>
     </v-btn>
+  </a>
 
+  <a href="./progresoleccion">
     <v-btn>
       <v-icon>mdi-lightbulb-on-10</v-icon>
     </v-btn>
+  </a>
 
+  <a href="">
     <v-btn>
       <v-icon>mdi-account</v-icon>
     </v-btn>
+  </a>
   </v-bottom-navigation>
   </center>
   </v-container>

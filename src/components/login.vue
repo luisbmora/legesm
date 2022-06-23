@@ -25,7 +25,8 @@
             solo
             name="password"
             v-model="editedItem.password"
-            :rules="[() => !!editedItem.password || 'Campo necesario']"
+            :rules="rulesPass"
+            :type="show1 ? 'text' : 'password'"
             label="Contraseña"
             required
           ></v-text-field>
@@ -62,7 +63,13 @@ import Swal from "sweetalert2";
         email: null,
         password: null,
         verificarC: null,
-      }
+        },
+        show1: false,
+        rulesPass: [
+        (value) => !!value || "Campo Necesario",
+        (v) => v.length > 7 || "Min 8 caracteres",
+      ],
+     
       
     }),
 

@@ -25,3 +25,14 @@ export async function AddUsuario({ commit }, cliente) {
         commit("UsuarioError", error);
       });
   }
+
+  export async function SelectedUsuario({ commit }, cliente) {
+    await axios
+      .post("/user", cliente)
+      .then((respuesta) => {
+        commit("usuarioAdd", respuesta);
+      })
+      .catch((error) => {
+        commit("UsuarioError", error);
+      });
+  }

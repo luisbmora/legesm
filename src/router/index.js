@@ -53,6 +53,7 @@ const routes = [{
     {
         path: '/Secciones',
         name: 'secciones',
+<<<<<<< HEAD
         component: () =>
             import ('../views/Secciones.vue')
     },
@@ -60,6 +61,14 @@ const routes = [{
         path: '/Perfil',
         name: 'perfil',
         component: Perfil
+=======
+        component: () => import('../views/Secciones.vue')
+    },
+    {
+        path: '/ProgresoLeccion',
+        name: 'progreso-leccion',
+        component: () => import('../views/ProgresoLeccion.vue')
+>>>>>>> 4fa33ed396b32eb7532b16ef907fa4ac59d52e01
     }
 ]
 
